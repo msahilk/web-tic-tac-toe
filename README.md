@@ -3,15 +3,11 @@
 
 ## Overview
 
-Welcome to the GitHub repository for our classic Tic Tac Toe game!
+Welcome to the GitHub repository for a classic Tic Tac Toe game!
 This project is a Multiple room tic-tac-toe that allows users to play the game from different rooms.
 Players can create a room or join a room that's already been created.
 This project allows you to play Tic Tac Toe against another player.
 The game showcases simple yet robust software design principles.
-## Group Members:
-- Jaspartap Goomer
-- Mohammad Kamil
-- Syeda Muqadas
 
 ### Tic-Tac-Toe
 ![front page](image%20(2).png)
