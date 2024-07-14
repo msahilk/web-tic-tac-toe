@@ -22,8 +22,8 @@ To run the application, follow these steps:
 1. Clone the repository to your local machine.
 2. Open the project in IntelliJ IDEA.
 3. Build the project to resolve dependencies.
-4. To start the application run the `index.html` file.
-5. Access the application in your web browser and start chatting.
+4. Set up a glassfish instance with the project artifact
+5. Run the glassfish server and play in your browser!
 
 
 
