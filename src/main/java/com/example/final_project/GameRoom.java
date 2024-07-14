@@ -1,4 +1,4 @@
-package final_project;
+package com.example.final_project;
 
 import jakarta.websocket.Session;
 import org.json.JSONArray;

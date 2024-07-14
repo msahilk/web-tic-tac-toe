@@ -1,4 +1,4 @@
-package final_project;
+package com.example.final_project;
 
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
@@ -6,9 +6,16 @@ import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Application;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,9 +41,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
                 }
             }
-
-
-
     @OnMessage
     public void onMessage(Session session, String message, @PathParam("roomId") String roomId) throws IOException {
         GameRoom gameRoom = rooms.get(roomId);
@@ -79,4 +83,20 @@ import java.util.concurrent.ConcurrentHashMap;
             }
         });
     }
-}
+    @jakarta.ws.rs.ApplicationPath("/api")
+    public static class GameApplication extends Application {
+
+        @jakarta.ws.rs.Path("/game")
+        public static class GameRest {
+            @GET
+            @Path("/activeRooms")
+            @Produces(MediaType.APPLICATION_JSON)
+            public Response getActiveRooms() {
+                return Response.ok(new ArrayList<>(rooms.keySet())).build();
+            }
+        }
+    }
+    }
+
+
+

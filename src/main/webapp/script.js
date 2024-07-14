@@ -1,5 +1,5 @@
 
-const wsUrl = 'http://localhost:8080/w24-csci2020u-final-project-muqadas-kamil-goomer-1.0-SNAPSHOT/game/';
+const wsUrl = 'http://localhost:8080/w24-csci2020u-final-project-1.0-SNAPSHOT/game/';
 
 
 let currentRoomId = null;
@@ -12,17 +12,7 @@ document.querySelectorAll('.cell').forEach(cell => {
     cell.addEventListener('click', makeMove);
 });
 
-function createNewGame() {
 
-    var roomId = document.getElementById("roomIdInput").value;
-    currentRoomId = roomId;
-    playerSymbol = 'X';
-    alert('New game created! Room ID: ' + currentRoomId);
-
-             playerSymbol = 'X';
-             connectWebSocket(currentRoomId);
-
-}
 
 function joinGame() {
     const roomId = document.getElementById('roomIdInput').value.trim();
@@ -81,3 +71,41 @@ function updateBoard(board) {
         });
     });
 }
+
+async function fetchActiveRooms() {
+    try {
+        const response = await fetch('/w24-csci2020u-final-project-1.0-SNAPSHOT/api/game/activeRooms');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const rooms = await response.json();
+        const roomsList = document.getElementById('roomsList');
+        roomsList.innerHTML = '';  // Clear any existing rooms
+
+        rooms.forEach(roomId => {
+            const listItem = document.createElement('li');
+            listItem.textContent = roomId;
+            roomsList.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error('Error fetching active rooms:', error);
+    }
+}
+
+function createNewGame() {
+
+    var roomId = document.getElementById("roomIdInput").value;
+    currentRoomId = roomId;
+    playerSymbol = 'X';
+    alert('New game created! Room ID: ' + currentRoomId);
+
+    playerSymbol = 'X';
+    connectWebSocket(currentRoomId);
+
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchActiveRooms();
+    setInterval(fetchActiveRooms, 5000);  // Update every 10 seconds
+});

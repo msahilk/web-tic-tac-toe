@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>w24-csci2020u-final-project-muqadas-kamil-goomer</artifactId>
+  <artifactId>w24-csci2020u-final-project</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>w24-csci2020u-final-project-muqadas-kamil-goomer</name>
+  <name>w24-csci2020u-final-project</name>
   <packaging>war</packaging>
 
   <properties>
