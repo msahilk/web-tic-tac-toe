@@ -20,7 +20,7 @@ The game showcases simple yet robust software design principles.
 To run the application, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Open the project in IntelliJ IDEA.
+2. Open the project in IDE of your choosing (Tested in IntelliJ IDEA).
 3. Build the project to resolve dependencies.
 4. Set up a glassfish instance with the project artifact
 5. Run the glassfish server and play in your browser!
