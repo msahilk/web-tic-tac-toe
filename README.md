@@ -10,6 +10,7 @@ This project allows you to play Tic Tac Toe against another player.
 The game showcases simple yet robust software design principles.
 
 ### Tic-Tac-Toe
+![front page](image%20(3).png)
 ![front page](image%20(2).png)
 ![front page](image%20(1).png)
 
